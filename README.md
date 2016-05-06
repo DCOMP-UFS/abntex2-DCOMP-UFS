@@ -1,4 +1,4 @@
-abntex2-DCOMP-UFS
+dcomp-abntex2
 =========================
 
 Classe que adapta o pacote abntex2 para as normas do Departamento de Computação  (DCOMP) da Universidade Federal de Sergipe (UFS) para trabalho de conclusão de curso (TCC). Para quem não conhece, o abntex2 (http://www.abntex.net.br/) é uma classe que implementa as normas da ABNT para os usuários do LaTex. Eles fizeram o trabalho de normatização e merecem todo o mérito. O que fizemos aqui foi só uma adaptação para as normas do DCOMP-UFS.
