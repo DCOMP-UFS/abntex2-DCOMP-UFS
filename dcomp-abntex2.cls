@@ -29,8 +29,8 @@
 }
 
 \PassOptionsToClass{
-    chapter=TITLE,
-    section=TITLE,
+    %chapter=TITLE,
+    %section=TITLE,
     12pt, % Tamanho da fonte
     openright, % Capítulos começam em pág. ímpar (insere página vazia caso preciso)
     oneside, % Para impressão somente verso. Oposto a impressão em frente e verso
@@ -57,6 +57,7 @@
 \usepackage{color}			    % Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{float}
 
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
@@ -80,21 +81,96 @@
 % ---
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% CAPA E FOLHA DE ROSTO
+%% CAPA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \local{S\~ao Crist\'ov\~ao}
 \data{2016}
 \instituicao{%
-  Universidade Federal de Sergipe -- UFS
+  Universidade Federal de Sergipe
   \par
   Centro de Ciências Exatas e Tecnologia
   \par
   Departamento de Computação}
 \tipotrabalho{Trabalho de Conclusão de Curso}
+
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
 \preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
 as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \centering
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.3]{Imagens/logo_ufs}
+    \end{figure}
+
+    {\ABNTEXchapterfont\bfseries\imprimirinstituicao}
+    \vspace*{\fill}
+
+    {\ABNTEXchapterfont{TRABALHO DE CONCLUSÃO DE CURSO}}
+    \vspace*{\fill}
+
+    %{\ABNTEXchapterfont\bfseries\imprimirtitulo}
+    {\ABNTEXchapterfont\huge\imprimirtitulo}
+    \vspace*{3.0cm}
+
+    {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{3.0cm}}
+    \vspace*{\fill}
+
+    {\ABNTEXchapterfont\imprimirlocal}
+    \par
+    {\ABNTEXchapterfont\imprimirdata}
+
+    \vspace*{1cm}
+  \end{capa}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOLHA DE ROSTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+	\begin{center}
+		{\ABNTEXchapterfont\bfseries{\imprimirinstituicao\par}}
+		\vspace*{\fill}
+
+		{\ABNTEXchapterfont\Large\imprimirautor}
+
+		\vspace*{3.5cm}
+		{\ABNTEXchapterfont\Large\imprimirtitulo}
+		
+		\vspace*{\fill}
+
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			 \hspace{.40\textwidth}
+			  \begin{minipage}{9cm}
+				  \SingleSpacing
+				  \imprimirpreambulo
+			  \end{minipage}%
+		}%
+
+		\abntex@ifnotempty{\imprimirorientador}{%
+			\hspace{.40\textwidth}
+  				\begin{minipage}{9cm}
+					\SingleSpacing
+					Orientador:
+					\imprimirorientador
+					\vfill
+					Corientadora:
+					\imprimircoorientador
+				\end{minipage}%
+			\vspace*{\fill}
+		}%
+
+\vspace*{\fill}
+{\imprimirlocal\par}
+{\imprimirdata\vspace*{1cm}}
+\end{center}
+}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÃO DE APARÊNCIA DO PDF FINAL
