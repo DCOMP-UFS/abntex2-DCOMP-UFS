@@ -17,7 +17,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[01/05/2016 v0.1 Modelo do DCOMP baseado em abnTeX2]
+\ProvidesClass{dcomp-abntex2}[01/05/2016 v0.2 Modelo do DCOMP baseado em abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -29,8 +29,10 @@
 }
 
 \PassOptionsToClass{
-    %chapter=TITLE,
+    chapter=TITLE,
     %section=TITLE,
+    %sumario = sumario=abnt-6027-2012, Sumário seguindo as normas ABNT NBR 6027:2012
+    sumario = tradicional, % Sumário customizado da classe abntex2
     12pt, % Tamanho da fonte
     openright, % Capítulos começam em pág. ímpar (insere página vazia caso preciso)
     oneside, % Para impressão somente verso. Oposto a impressão em frente e verso
@@ -48,8 +50,8 @@
 \usepackage[utf8]{inputenc}     % Codificacao do documento
 \usepackage{lastpage}           % Para total de páginas
 
-\usepackage{times}			    % Usa a fonte selecionada			
-\renewcommand{\familydefault}{\sfdefault} % Seta fonte default
+\usepackage{mathptmx}           % Usa a fonte times
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
@@ -57,10 +59,13 @@
 \usepackage{color}			    % Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
-\usepackage{float}
 
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+\usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage{float}
+\usepackage{morefloats}			% permite mais floats
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -103,7 +108,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
     \centering
     \begin{figure}[H]
       \centering
-      \includegraphics[scale=0.3]{Imagens/logo_ufs}
+      \includegraphics[scale=0.2]{Imagens/logo_ufs}
     \end{figure}
 
     {\ABNTEXchapterfont\bfseries\imprimirinstituicao}
@@ -113,7 +118,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
     \vspace*{\fill}
 
     %{\ABNTEXchapterfont\bfseries\imprimirtitulo}
-    {\ABNTEXchapterfont\huge\imprimirtitulo}
+    {\ABNTEXchapterfont\Large\imprimirtitulo}
     \vspace*{3.0cm}
 
     {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{3.0cm}}
@@ -159,7 +164,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 					Orientador:
 					\imprimirorientador
 					\vfill
-					Corientadora:
+					Coorientador:
 					\imprimircoorientador
 				\end{minipage}%
 			\vspace*{\fill}
@@ -312,10 +317,8 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Table of contents
+%% TABLE OF CONTENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{tocdepth}{4}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SUMARIO
