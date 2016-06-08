@@ -1,19 +1,8 @@
 %% Customizações do abnTeX2 para o Departamento de Computação (DCOMP)
 %% da Universidade Federal de Sergipe (UFS)
 %%
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
 %%
-%% This work has the LPPL maintenance status `maintained'.
-%% 
-%% The Current Maintainer of this work is SEU_NOME, SEU_EMAIL
-%%
-%% Further information about abnTeX2 are available on http://www.abntex.net.br/
+%% Maiores informações sobre o abntex está disponível em http://www.abntex.net.br/
 %%
 
 \NeedsTeXFormat{LaTeX2e}
@@ -29,7 +18,7 @@
 }
 
 \PassOptionsToClass{
-    chapter=TITLE,
+    %chapter=TITLE,
     %section=TITLE,
     %sumario = sumario=abnt-6027-2012, Sumário seguindo as normas ABNT NBR 6027:2012
     sumario = tradicional, % Sumário customizado da classe abntex2
@@ -47,9 +36,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cmap}               % Mapear caracteres especiais no PDF
 \usepackage[utf8]{inputenc}     % Codificacao do documento
 \usepackage{lastpage}           % Para total de páginas
-
 \usepackage{mathptmx}           % Usa a fonte times
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 
@@ -60,12 +49,15 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[brazilian,hyperpageref]{backref}
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{float}
 \usepackage{morefloats}			% permite mais floats
+
+\usepackage{listings}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -317,13 +309,37 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TABLE OF CONTENTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SUMARIO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Uso do sumário tradicional, com espaçamento entre os capítulos
+\setlength{\cftbeforechapterskip}{1em}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LISTAS
+%% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Altera o nome padrão do rótulo usado no comando \autoref{}
+\renewcommand{\lstlistingname}{Código}
+
+% Altera o rótulo a ser usando no elemento pré-textual "Lista de código"
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+
+% Configura a ``Lista de Códigos'' conforme as regras da ABNT (para abnTeX2)
+\begingroup\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+  \globaldefs\@ne \let\c@loldepth\@ne
+  \newlistof{listings}{lol}{\lstlistlistingname}
+  \newlistentry{lstlisting}{lol}{0}
+\endgroup
+
+\renewcommand{\cftlstlistingaftersnum}{\hfill--\hfill}
+
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+   \begingroup%
+   \let\oldnumberline\numberline%
+   \renewcommand{\numberline}{\lstlistingname\space\oldnumberline}%
+   \oldlstlistoflistings%
+   \endgroup}
