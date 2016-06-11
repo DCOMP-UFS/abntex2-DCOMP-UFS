@@ -39,6 +39,7 @@
 \usepackage{cmap}               % Mapear caracteres especiais no PDF
 \usepackage[utf8]{inputenc}     % Codificacao do documento
 \usepackage{lastpage}           % Para total de páginas
+
 \usepackage{mathptmx}           % Usa a fonte times
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 
@@ -57,7 +58,6 @@
 \usepackage{morefloats}			% permite mais floats
 
 \usepackage{listings}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -80,20 +80,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CAPA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\local{S\~ao Crist\'ov\~ao}
+
+% Comandos de dados - Curso
+\providecommand{\imprimircurso}{}
+\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
+
+
+\local{S\~ao Crist\'ov\~ao -- Sergipe}
+
 \data{2016}
+
 \instituicao{%
-  Universidade Federal de Sergipe
+  UNIVERSIDADE FEDERAL DE SERGIPE
   \par
-  Centro de Ciências Exatas e Tecnologia
+  CENTRO DE CIÊNCIAS EXATAS E TECNOLOGIA
   \par
-  Departamento de Computação}
+  DEPARTAMENTO DE COMPUTAÇÃO}
+  
 \tipotrabalho{Trabalho de Conclusão de Curso}
 
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
-as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+
+\preambulo{Trabalho de Conclusão de Curso submetido ao Departamento de Computação da Universidade Federal de Sergipe como requisito parcial para a obtenção do título de Bacharel em \imprimircurso.}
+
 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
@@ -105,15 +115,16 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
     {\ABNTEXchapterfont\bfseries\imprimirinstituicao}
     \vspace*{\fill}
-
-    {\ABNTEXchapterfont{TRABALHO DE CONCLUSÃO DE CURSO}}
-    \vspace*{\fill}
+    \vspace*{4.0cm}
 
     %{\ABNTEXchapterfont\bfseries\imprimirtitulo}
     {\ABNTEXchapterfont\Large\imprimirtitulo}
-    \vspace*{3.0cm}
+    \vspace*{1.0cm}
+    
+    {\ABNTEXchapterfont{TRABALHO DE CONCLUSÃO DE CURSO}}
+    \vspace*{\fill}
 
-    {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{3.0cm}}
+    {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{2.0cm}}
     \vspace*{\fill}
 
     {\ABNTEXchapterfont\imprimirlocal}
@@ -148,15 +159,16 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 				  \imprimirpreambulo
 			  \end{minipage}%
 		}%
-
+		
+		\vspace*{1.0cm}
 		\abntex@ifnotempty{\imprimirorientador}{%
 			\hspace{.40\textwidth}
   				\begin{minipage}{9cm}
 					\SingleSpacing
-					Orientador:
+					Orientador(a):
 					\imprimirorientador
 					\vfill
-					Coorientador:
+					Coorientador(a):
 					\imprimircoorientador
 				\end{minipage}%
 			\vspace*{\fill}
@@ -320,26 +332,11 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 %% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Altera o nome padrão do rótulo usado no comando \autoref{}
-\renewcommand{\lstlistingname}{Código}
 
-% Altera o rótulo a ser usando no elemento pré-textual "Lista de código"
-\renewcommand{\lstlistlistingname}{Lista de códigos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTA DE ALGORITMOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Configura a ``Lista de Códigos'' conforme as regras da ABNT (para abnTeX2)
-\begingroup\makeatletter
-\let\newcounter\@gobble\let\setcounter\@gobbletwo
-  \globaldefs\@ne \let\c@loldepth\@ne
-  \newlistof{listings}{lol}{\lstlistlistingname}
-  \newlistentry{lstlisting}{lol}{0}
-\endgroup
-
-\renewcommand{\cftlstlistingaftersnum}{\hfill--\hfill}
-
-\let\oldlstlistoflistings\lstlistoflistings
-\renewcommand{\lstlistoflistings}{%
-   \begingroup%
-   \let\oldnumberline\numberline%
-   \renewcommand{\numberline}{\lstlistingname\space\oldnumberline}%
-   \oldlstlistoflistings%
-   \endgroup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ESTILO DOS CAPÍTULOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
