@@ -1,9 +1,10 @@
-%% Customizações do abnTeX2 para o Departamento de Computação (DCOMP)
-%% da Universidade Federal de Sergipe (UFS)
-%%
-%%
-%% Maiores informações sobre o abntex está disponível em http://www.abntex.net.br/
-%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Customizações do abnTeX2 para o Departamento de Computação (DCOMP)               %
+%% da Universidade Federal de Sergipe (UFS)                                         %
+%%                                                                                  %  
+%%                                                                                  %
+%% Maiores informações sobre o abntex está disponível em http://www.abntex.net.br/  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dcomp-abntex2}[01/05/2016 v0.2 Modelo do DCOMP baseado em abnTeX2]
@@ -58,6 +59,7 @@
 \usepackage{morefloats}			% permite mais floats
 
 \usepackage{listings}
+\usepackage{xcolor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -332,11 +334,25 @@
 %% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LISTA DE ALGORITMOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ESTILO DOS CAPÍTULOS
+%% FORMATO DOS CAPÍTULOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\chapnumfont}{%
+    \vspace*{1cm}    
+    \usefont{T1}{pnc}{b}{n}%      % choose New Chancery, bold, normal shape
+    \fontsize{100}{100}%          % font size 100pt, baselineskip 100pt
+    \color{gray!75}%                 
+    \selectfont%                  % activate font
+}
+
+\renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize\color{black}}
+
+\renewcommand{\afterchapternum}{%
+    \par
+}
+
