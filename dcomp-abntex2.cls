@@ -58,8 +58,8 @@
 \usepackage{float}
 \usepackage{morefloats}			% permite mais floats
 
-\usepackage{listings}
 \usepackage{xcolor}
+\usepackage{supertabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -87,9 +87,7 @@
 \providecommand{\imprimircurso}{}
 \newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
 
-
 \local{S\~ao Crist\'ov\~ao -- Sergipe}
-
 \data{2016}
 
 \instituicao{%
@@ -101,21 +99,29 @@
   
 \tipotrabalho{Trabalho de Conclusão de Curso}
 
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
-
 \preambulo{Trabalho de Conclusão de Curso submetido ao Departamento de Computação da Universidade Federal de Sergipe como requisito parcial para a obtenção do título de Bacharel em \imprimircurso.}
-
 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
+  
+    \begin{flushleft}
+    	\tablefirsthead{}
+	  	\tablehead{}
+  		\tabletail{}
+	  	\tablelasttail{}
+	  	
+	  	\begin{supertabular} {m{2cm}m{9cm}m{3cm}}
+   			\includegraphics[scale=0.2]{Imagens/logo_ufs}  &
+  			\imprimirinstituicao
+		    \vspace*{\fill}
+  			~
+   			&
+  			\centering  \includegraphics[scale=0.3]{Imagens/dcomp} \\
+  		\end{supertabular}
+  		
+    \end{flushleft}
+    
     \centering
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.2]{Imagens/logo_ufs}
-    \end{figure}
-
-    {\ABNTEXchapterfont\bfseries\imprimirinstituicao}
     \vspace*{\fill}
     \vspace*{4.0cm}
 
@@ -123,15 +129,16 @@
     {\ABNTEXchapterfont\Large\imprimirtitulo}
     \vspace*{1.0cm}
     
-    {\ABNTEXchapterfont{TRABALHO DE CONCLUSÃO DE CURSO}}
+    {Trabalho de Conclusão de Curso}
     \vspace*{\fill}
 
-    {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{2.0cm}}
+    {\Large\imprimirautor}
+    \vspace*{2.0cm}
     \vspace*{\fill}
 
-    {\ABNTEXchapterfont\imprimirlocal}
+    {\imprimirlocal}
     \par
-    {\ABNTEXchapterfont\imprimirdata}
+    {\imprimirdata}
 
     \vspace*{1cm}
   \end{capa}
@@ -144,10 +151,11 @@
 \makeatletter
 \renewcommand{\folhaderostocontent}{
 	\begin{center}
-		{\ABNTEXchapterfont\bfseries{\imprimirinstituicao\par}}
+		\imprimirinstituicao
+		\par
 		\vspace*{\fill}
 
-		{\ABNTEXchapterfont\Large\imprimirautor}
+		{\Large\imprimirautor}
 
 		\vspace*{3.5cm}
 		{\ABNTEXchapterfont\Large\imprimirtitulo}
