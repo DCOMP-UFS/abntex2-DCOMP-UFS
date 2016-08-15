@@ -1,6 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Customizações do abnTeX2 para o Departamento de Computação (DCOMP)               %
 %% da Universidade Federal de Sergipe (UFS)                                         %
+%% This work may be distributed and/or modified under the                           %
+%% conditions of the LaTeX Project Public License, either version 1.3               %
+%% of this license or (at your option) any later version.                           %
+%% The latest version of this license is in                                         %
+%%   http://www.latex-project.org/lppl.txt                                          %
+%% and version 1.3 or later is part of all distributions of LaTeX                   %
+%% version 2005/12/01 or later.                                                     %
+%% This work has the LPPL maintenance status `maintained'.                          %
 %%                                                                                  %  
 %%                                                                                  %
 %% Maiores informações sobre o abntex está disponível em http://www.abntex.net.br/  %
@@ -17,19 +25,6 @@
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{abntex2}
 }
-
-\PassOptionsToClass{
-    %chapter=TITLE,
-    %section=TITLE,
-    %sumario = sumario=abnt-6027-2012, Sumário seguindo as normas ABNT NBR 6027:2012
-    sumario = tradicional, % Sumário customizado da classe abntex2
-    12pt, % Tamanho da fonte
-    openright, % Capítulos começam em pág. ímpar (insere página vazia caso preciso)
-    oneside, % Para impressão somente verso. Oposto a impressão em frente e verso
-    a4paper, % Tamanho do papel
-    english, % Idioma adicional para hifenização
-    brazil   % o último idioma é o principal do documento
-}{abntex2}
 
 \ProcessOptions\relax
 \LoadClass{abntex2}
