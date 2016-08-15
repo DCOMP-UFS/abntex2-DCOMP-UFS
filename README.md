@@ -16,12 +16,12 @@ Sugerimos escrever o TCC por cima do arquivo .tex fornecido, com toda sua estrut
 
 
 Com relação ao pacote abntex2, foram modificadas as seguintes páginas:
-- Fontes (em trabalho)
-- Sumário (em trabalho)
-- Listas (em trabalho)
-- Capa (em trabalho)
-- Folha de rosto (em trabalho)
-- Ficha catalográfica (em trabalho)
+- Fontes -> Times New Roman
+- Sumário -> Tradicional
+- Listas (Falta adicionar a lista de códigos e lista de algoritmos)
+- Capa -> Imagens do DCOMP e UFS adicionadas
+- Folha de rosto -> 
+- Ficha catalográfica
 
 
-É necessário instalar o pacote abntex2 para que funcione. Para informações, basta ir na página fornecida acima para instruções.
+É necessário instalar o pacote abntex2 para que o template funcione. Para maiores informações, ir na página http://www.abntex.net.br/.
