@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[01/05/2016 v0.2 Modelo do DCOMP baseado em abnTeX2]
+\ProvidesClass{dcomp-abntex2}[01/05/2016 v0.6 Modelo do DCOMP baseado em abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -178,8 +178,15 @@
 					Orientador(a):
 					\imprimirorientador
 					\vfill
-					Coorientador(a):
-					\imprimircoorientador
+					\ifthenelse{\equal{\imprimircoorientador}{}}
+						{
+							%Não escreve nada se não tiver coorientador
+						}
+						{
+							Coorientador(a): \imprimircoorientador
+							\vfill
+						}
+						
 				\end{minipage}%
 			\vspace*{\fill}
 		}%
