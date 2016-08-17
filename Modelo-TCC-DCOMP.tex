@@ -41,11 +41,11 @@
 %\imprimirfichacatalografica
 %\imprimirfolhadeaprovacao
     
-\include{Configuraveis/Dedicatoria}
-\include{Configuraveis/Agradecimentos}
-\include{Configuraveis/Epigrafe}
-\include{Configuraveis/Resumo}
-\include{Configuraveis/Abstract}
+\include{Pre_Textual/Dedicatoria}
+\include{Pre_Textual/Agradecimentos}
+\include{Pre_Textual/Epigrafe}
+\include{Pre_Textual/Resumo}
+\include{Pre_Textual/Abstract}
     
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
@@ -55,8 +55,8 @@
 \listoftables*
 \cleardoublepage
     
-\include{Configuraveis/Abreviaturas}
-\include{Configuraveis/Simbolos}
+\include{Pre_Textual/Abreviaturas}
+\include{Pre_Textual/Simbolos}
     
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
@@ -66,18 +66,17 @@
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
-\include{Textual/Introducao}
-\include{Textual/TrabalhosRelacionados}
-\include{Textual/Conclusao}
+\include{Conteudo/Introducao}
+\include{Conteudo/TrabalhosRelacionados}
+\include{Conteudo/Conclusao}
+
+\bibliography{Bibliografia}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
-\include{glossario}
-\include{apendices}
-\include{anexos}
-
-\bibliography{Bibliografia}
+\include{Pos_Textual/Apendices}
+\include{Pos_Textual/Anexos}
 
 \end{document}
