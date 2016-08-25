@@ -18,9 +18,9 @@ Sugerimos escrever o TCC por cima do arquivo .tex fornecido, com toda sua estrut
 Com relação ao pacote abntex2, foram modificadas as seguintes páginas:
 - Fontes -> Times New Roman
 - Sumário -> Tradicional
-- Listas (Falta adicionar a lista de códigos e lista de algoritmos)
+- Listas -> Ilustrações, Tabelas e Códigos
 - Capa -> Imagens do DCOMP e UFS adicionadas
-- Folha de rosto -> 
+- Folha de rosto
 - Ficha catalográfica
 
 
