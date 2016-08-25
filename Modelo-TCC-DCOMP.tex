@@ -54,7 +54,14 @@
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
-    
+
+\pdfbookmark[0]{\lstlistlistingname}{lol}
+\counterwithout{lstlisting}{chapter}
+\begin{KeepFromToc}
+	\lstlistoflistings
+\end{KeepFromToc}
+\cleardoublepage
+   
 \include{Pre_Textual/Abreviaturas}
 \include{Pre_Textual/Simbolos}
     
