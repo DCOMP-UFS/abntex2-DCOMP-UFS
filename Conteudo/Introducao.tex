@@ -42,20 +42,56 @@ Equipe \abnTeX
 Lauro César Araujo
 
 \section{Estratégias em um Novo Paradigma Globalizado}
-Por conseguinte, a contínua expansão de nossa atividade apresenta tendências no sentido de aprovar a manutenção das posturas dos órgãos dirigentes com relação às suas atribuições. Por outro lado, a hegemonia do ambiente político exige a precisão e a definição do impacto na agilidade decisória. No mundo atual, o desafiador cenário globalizado facilita a criação das direções preferenciais no sentido do progresso. No entanto, não podemos esquecer que o entendimento das metas propostas estende o alcance e a importância das condições financeiras e administrativas exigidas. Pensando mais a longo prazo, a valorização de fatores subjetivos garante a contribuição de um grupo importante na determinação das regras de conduta normativas. 
+Por conseguinte, a contínua expansão de nossa atividade apresenta tendências no sentido de aprovar a manutenção das posturas dos órgãos dirigentes com relação às suas atribuições. Por outro lado, a hegemonia do ambiente político exige a precisão e a definição do impacto na agilidade decisória. No mundo atual, o desafiador cenário globalizado facilita a criação das direções preferenciais no sentido do progresso. No entanto, não podemos esquecer que o entendimento das metas propostas estende o alcance e a importância das condições financeiras e administrativas exigidas. Pensando mais a longo prazo, a valorização de fatores subjetivos garante a contribuição de um grupo importante na determinação das regras de conduta normativas, como exemplo o Códigos \ref{labelJava} e o Código \ref{labelPython}.
 
-\begin{lstlisting}[caption={Primeiro código Java},label=Java1, language=java]
-
-public class HelloWorld {
-
-    public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
-        System.out.println("Hello, World");
+\begin{listing}[H]
+    \caption{Primeiro código C}
+    \label{labelJava}
+    
+    \begin{minted}{c}
+    int main() {
+        printf("hello world");
+        return 0;
     }
+    \end{minted}
+    
+\end{listing}
 
-}
-
-\end{lstlisting}
+\begin{listing}[H]
+    \caption{Primeiro código Python}
+    \label{labelPython}
+	\begin{minted}{python}
+import numpy as np
+ 
+def incmatrix(genl1,genl2):
+    m = len(genl1)
+    n = len(genl2)
+    M = None #to become the incidence matrix
+    VT = np.zeros((n*m,1), int)  #dummy variable
+ 
+    #compute the bitwise xor matrix
+    M1 = bitxormatrix(genl1)
+    M2 = np.triu(bitxormatrix(genl2),1) 
+ 
+    for i in range(m-1):
+        for j in range(i+1, m):
+            [r,c] = np.where(M2 == M1[i,j])
+            for k in range(len(r)):
+                VT[(i)*n + r[k]] = 1;
+                VT[(i)*n + c[k]] = 1;
+                VT[(j)*n + r[k]] = 1;
+                VT[(j)*n + c[k]] = 1;
+ 
+                if M is None:
+                    M = np.copy(VT)
+                else:
+                    M = np.concatenate((M, VT), 1)
+ 
+                VT = np.zeros((n*m,1), int)
+ 
+    return M
+	\end{minted}
+\end{listing}
 
 É importante questionar o quanto a adoção de políticas descentralizadoras desafia a capacidade de equalização dos índices pretendidos. Neste sentido, a constante divulgação das informações promove a alavancagem do processo de comunicação como um todo. As experiências acumuladas demonstram que a consolidação das estruturas obstaculiza a apreciação da importância dos níveis de motivação departamental. Acima de tudo, é fundamental ressaltar que a consulta aos diversos militantes oferece uma interessante oportunidade para verificação das condições inegavelmente apropriadas. A prática cotidiana prova que o início da atividade geral de formação de atitudes acarreta um processo de reformulação e modernização do retorno esperado a longo prazo. 
 
