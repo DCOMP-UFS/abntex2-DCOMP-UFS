@@ -52,7 +52,7 @@
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
 \usepackage{supertabular}
-\usepackage{listings}
+\usepackage[newfloat]{minted}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,34 +343,32 @@
 %% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Altera o nome padrão do rótulo usado no comando \autoref{}
-\renewcommand{\lstlistingname}{Código}
+\setminted{ bgcolor=gray!15, 
+            frame=lines,
+            mathescape,
+            autogobble,
+            breakanywhere,
+            breaklines,
+            framesep=2mm,
+            baselinestretch=1.2,
+            fontsize=\footnotesize,
+            linenos
+            %style=borland,
+}
 
-% Altera o rótulo a ser usando no elemento pré-textual "Lista de código"
-\renewcommand{\lstlistlistingname}{Lista de códigos}
+\makeatletter
+\let\l@listing\l@figure
+\def\newfloat@listoflisting@hook{\let\figurename\listingname}
+\makeatother
 
-% Configura a ``Lista de Códigos'' conforme as regras da ABNT (para abnTeX2)
-\begingroup\makeatletter
-\let\newcounter\@gobble\let\setcounter\@gobbletwo
-  \globaldefs\@ne \let\c@loldepth\@ne
-  \newlistof{listings}{lol}{\lstlistlistingname}
-  \newlistentry{lstlisting}{lol}{0}
-\endgroup
-
-\renewcommand{\cftlstlistingaftersnum}{\hfill--\hfill}
-
-\let\oldlstlistoflistings\lstlistoflistings
-\renewcommand{\lstlistoflistings}{%
-   \begingroup%
-   \let\oldnumberline\numberline%
-   \renewcommand{\numberline}{\lstlistingname\space\oldnumberline}%
-   \oldlstlistoflistings%
-   \endgroup}
-   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LISTA DE ALGORITMOS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\SetupFloatingEnvironment{listing}{%
+  fileext=lol,
+  listname={Lista de códigos},
+  name=Código,
+  placement=p,
+  within=none,
+  chapterlistsgaps=off}
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
