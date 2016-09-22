@@ -47,18 +47,19 @@
 \include{Pre_Textual/Resumo}
 \include{Pre_Textual/Abstract}
     
+% Lista de Figuras
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
+% Lista de Tabelas
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 
-\pdfbookmark[0]{\lstlistlistingname}{lol}
-\counterwithout{lstlisting}{chapter}
+% Lista de Códigos
 \begin{KeepFromToc}
-	\lstlistoflistings
+	\listoflistings
 \end{KeepFromToc}
 \cleardoublepage
    
