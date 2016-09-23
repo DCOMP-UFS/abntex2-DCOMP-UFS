@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[01/05/2016 v1.2 Modelo do DCOMP baseado em abnTeX2]
+\ProvidesClass{dcomp-abntex2}[01/05/2016 v1.3 Modelo do DCOMP baseado em abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -110,7 +110,7 @@
 		    \vspace*{\fill}
   			~
    			&
-  			\centering  \includegraphics[scale=0.3]{Imagens/dcomp} \\
+  			\centering \includegraphics[scale=0.2]{Imagens/logo_dcomp} \\
   		\end{supertabular}
   		
     \end{flushleft}
