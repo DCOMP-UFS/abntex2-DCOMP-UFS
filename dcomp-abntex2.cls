@@ -51,9 +51,7 @@
 
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
-\usepackage{supertabular}
 \usepackage[newfloat]{minted}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -98,43 +96,34 @@
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
   
-    \begin{flushleft}
-    	\tablefirsthead{}
-	  	\tablehead{}
-  		\tabletail{}
-	  	\tablelasttail{}
-	  	
-	  	\begin{supertabular} {m{2cm}m{9cm}m{3cm}}
-   			\includegraphics[scale=0.2]{Imagens/logo_ufs}  &
-  			\imprimirinstituicao
-		    \vspace*{\fill}
-  			~
-   			&
-  			\centering \includegraphics[scale=0.2]{Imagens/logo_dcomp} \\
-  		\end{supertabular}
-  		
-    \end{flushleft}
+		\centering \includegraphics[scale=0.2]{Imagens/logo_ufs}
+		
+		\imprimirinstituicao
+	    \vspace*{\fill}
     
-    \centering
-    \vspace*{\fill}
-    \vspace*{4.0cm}
-
-    %{\ABNTEXchapterfont\bfseries\imprimirtitulo}
-    {\ABNTEXchapterfont\Large\imprimirtitulo}
-    \vspace*{1.0cm}
+	    \centering
+    	\vspace*{\fill}
+	    \vspace*{3.0cm}
+    	
+    	%{\ABNTEXchapterfont\bfseries\imprimirtitulo}
+	    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    	\vspace*{1.0cm}
+    	
     
-    {Trabalho de Conclusão de Curso}
-    \vspace*{\fill}
+	    {Trabalho de Conclusão de Curso}
+    	\vspace*{\fill}
 
-    {\Large\imprimirautor}
-    \vspace*{2.0cm}
-    \vspace*{\fill}
+	    {\Large\imprimirautor}
+    	\vspace*{2.0cm}
+	    \vspace*{\fill}
+    
+    	\centering  \includegraphics[scale=0.2]{Imagens/logo_dcomp} 
+    
+    	{\imprimirlocal}
+	    \par
+    	{\imprimirdata}
 
-    {\imprimirlocal}
-    \par
-    {\imprimirdata}
-
-    \vspace*{1cm}
+	    \vspace*{1cm}
   \end{capa}
 }
 
