@@ -356,7 +356,7 @@
   name=Código,
   placement=p,
   within=none,
-  chapterlistsgaps=off}
+  chapterlistsgaps=on}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
