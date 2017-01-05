@@ -4,7 +4,10 @@ BASENAME=Modelo-Dissert-DCOMP
 TEXNAME=$(BASENAME).tex
 
 all:
-	pdflatex --shell-escape $(TEXNAME)
+	pdflatex $(TEXNAME)
+	bibtex $(BASENAME)
+	pdflatex $(TEXNAME)
+	pdflatex $(TEXNAME)
 
 
 clean:
@@ -15,6 +18,10 @@ clean:
 	rm -f $(BASENAME).lol
 	rm -f $(BASENAME).lot
 	rm -f $(BASENAME).toc
+
+	rm -f $(BASENAME).bbl
+	rm -f $(BASENAME).blg
+	rm -f $(BASENAME).brf
 
 
 

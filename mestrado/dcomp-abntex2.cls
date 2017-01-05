@@ -91,11 +91,16 @@
   \par
   CENTRO DE CIÊNCIAS EXATAS E TECNOLOGIA
   \par
-  DEPARTAMENTO DE COMPUTAÇÃO}
+  PROGRAMA DE PÓS-GRADUAÇÃO EM CIÊNCIA DA COMPUTAÇÃO}
   
-\tipotrabalho{Trabalho de Conclusão de Curso}
+\tipotrabalho{Dissertação de Mestrado}
 
-\preambulo{Trabalho de Conclusão de Curso submetido ao Departamento de Computação da Universidade Federal de Sergipe como requisito parcial para a obtenção do título de Bacharel em \imprimircurso.}
+\preambulo{Dissertação apresentada ao Programa de
+Pós-Graduação em Ciência da Computação
+(PROCC) da Universidade Federal de
+Sergipe (UFS) como requisito para a
+obtenção do título de mestre em Ciência da
+Computação.}
 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
@@ -111,17 +116,13 @@
     	
     	%{\ABNTEXchapterfont\bfseries\imprimirtitulo}
 	    {\ABNTEXchapterfont\Large\imprimirtitulo}
-    	\vspace*{1.0cm}
-    	
-    
-	    {Trabalho de Conclusão de Curso}
     	\vspace*{\fill}
 
 	    {\Large\imprimirautor}
     	\vspace*{2.0cm}
 	    \vspace*{\fill}
     
-    	\centering  \includegraphics[scale=0.2]{Imagens/logo_dcomp} 
+    	\centering  \includegraphics[scale=0.2]{Imagens/logo_procc} 
     
     	{\imprimirlocal}
 	    \par
@@ -393,17 +394,17 @@
 %% FORMATO DOS CAPÍTULOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\chapnumfont}{%
-    \vspace*{1cm}    
-    \usefont{T1}{pnc}{b}{n}%      % choose New Chancery, bold, normal shape
-    \fontsize{100}{100}%          % font size 100pt, baselineskip 100pt
-    \color{gray!75}%                 
-    \selectfont%                  % activate font
-}
+%\renewcommand{\chapnumfont}{%
+%    \vspace*{1cm}    
+%    \usefont{T1}{pnc}{b}{n}%      % choose New Chancery, bold, normal shape
+%    \fontsize{25}{25}%          % font size 100pt, baselineskip 100pt
+%    \color{gray!75}%                 
+%    \selectfont%                  % activate font
+%}
 
-\renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize\color{black}}
+%\renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize\color{black}}
 
-\renewcommand{\afterchapternum}{%
-    \par
-}
+%\renewcommand{\afterchapternum}{%
+%    \par
+%}
 
