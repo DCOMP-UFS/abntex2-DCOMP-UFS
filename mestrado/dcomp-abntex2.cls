@@ -51,7 +51,11 @@
 
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
-\usepackage[newfloat]{minted}
+
+\usepackage{supertabular}
+\usepackage{listings}
+%% or
+%\usepackage{minted}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -327,36 +331,63 @@
 % Uso do sumário tradicional, com espaçamento entre os capítulos
 \setlength{\cftbeforechapterskip}{1em}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTAGENS - LISTINGS & SUPERTABULAR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Altera o nome padrão do rótulo usado no comando \autoref{}
+\renewcommand{\lstlistingname}{Código}
+
+% Altera o rótulo a ser usando no elemento pré-textual "Lista de código"
+\renewcommand{\lstlistlistingname}{Lista de códigos}
+
+% Configura a ``Lista de Códigos'' conforme as regras da ABNT (para abnTeX2)
+%\begingroup\makeatletter
+%\let\newcounter\@gobble\let\setcounter\@gobbletwo
+%  \globaldefs\@ne \let\c@loldepth\@ne
+%  \newlistof{listings}{lol}{\lstlistlistingname}
+%  \newlistentry{lstlisting}{lol}{0}
+%\endgroup
+
+%\renewcommand{\cftlstlistingaftersnum}{\hfill--\hfill}
+
+%\let\oldlstlistoflistings\lstlistoflistings
+%\renewcommand{\lstlistoflistings}{%
+%   \begingroup%
+%   \let\oldnumberline\numberline%
+%   \renewcommand{\numberline}{\lstlistingname\space\oldnumberline}%
+%   \oldlstlistoflistings%
+%   \endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LISTA DE CÓDIGOS
+%% LISTAGENS - MINTED 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setminted{ bgcolor=gray!15, 
-            frame=lines,
-            mathescape,
-            autogobble,
-            breakanywhere,
-            breaklines,
-            framesep=2mm,
-            baselinestretch=1.2,
-            fontsize=\footnotesize,
-            linenos
-            %style=borland,
-}
-
-\makeatletter
-\let\l@listing\l@figure
-\def\newfloat@listoflisting@hook{\let\figurename\listingname}
-\makeatother
-
-\SetupFloatingEnvironment{listing}{%
-  fileext=lol,
-  listname={Lista de códigos},
-  name=Código,
-  placement=p,
-  within=none,
-  chapterlistsgaps=on}
+%\setminted{ bgcolor=gray!15, 
+%            frame=lines,
+%            mathescape,
+%            autogobble,
+%            breakanywhere,
+%            breaklines,
+%            framesep=2mm,
+%            baselinestretch=1.2,
+%            fontsize=\footnotesize,
+%            linenos
+%            %style=borland,
+%}
+%
+%\makeatletter
+%\let\l@listing\l@figure
+%\def\newfloat@listoflisting@hook{\let\figurename\listingname}
+%\makeatother
+%
+%\SetupFloatingEnvironment{listing}{%
+%  fileext=lol,
+%  listname={Lista de códigos},
+%  name=Código,
+%  placement=p,
+%  within=none,
+%  chapterlistsgaps=on}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
