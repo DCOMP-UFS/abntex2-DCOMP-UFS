@@ -15,19 +15,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[01/05/2016 v1.3 Modelo do DCOMP baseado em abnTeX2]
+\ProvidesClass{dcomp-abntex2}[12/01/2017 v1.4 Modelo do DCOMP baseado em abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareOption{bsc}{%
+  \let\@degreetype=0}
+
+\DeclareOption{msc}{%
+  \let\@degreetype=1}
+
+\DeclareOption{prop-msc}{%
+  \let\@degreetype=2}
+
+\DeclareOption{pibic}{%
+  \let\@degreetype=1}
 
 % Repassa todos os parametros a classe abntex2
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{abntex2}
 }
 
+
 \ProcessOptions\relax
-\LoadClass{abntex2}
+\LoadClass[sumario = tradicional, 12pt, openright, oneside, a4paper]{abntex2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES
@@ -52,6 +65,16 @@
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
 \usepackage[newfloat]{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACOTES POR TIPO DE DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\if \@degreetype0
+   \usepackage{Graduacao}
+   \else \if \@degreetype1
+       \usepackage{Mestrado}
+   \fi
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÕES DO PACOTE BACKREF
@@ -80,18 +103,7 @@
 \newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
 
 \local{S\~ao Crist\'ov\~ao -- Sergipe}
-\data{2016}
-
-\instituicao{%
-  UNIVERSIDADE FEDERAL DE SERGIPE
-  \par
-  CENTRO DE CIÊNCIAS EXATAS E TECNOLOGIA
-  \par
-  DEPARTAMENTO DE COMPUTAÇÃO}
-  
-\tipotrabalho{Trabalho de Conclusão de Curso}
-
-\preambulo{Trabalho de Conclusão de Curso submetido ao Departamento de Computação da Universidade Federal de Sergipe como requisito parcial para a obtenção do título de Bacharel em \imprimircurso.}
+\data{\the\year}
 
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
@@ -109,15 +121,14 @@
 	    {\ABNTEXchapterfont\Large\imprimirtitulo}
     	\vspace*{1.0cm}
     	
-    
-	    {Trabalho de Conclusão de Curso}
+	    \imprimirtipotrabalho
     	\vspace*{\fill}
 
 	    {\Large\imprimirautor}
     	\vspace*{2.0cm}
 	    \vspace*{\fill}
     
-    	\centering  \includegraphics[scale=0.2]{Imagens/logo_dcomp} 
+    	\imprimirlogo
     
     	{\imprimirlocal}
 	    \par
@@ -217,108 +228,17 @@
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FICHA CATALOGRÁFICA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
-% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
-% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
-% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
-% o conteúdo de implementação deste arquivo pelo comando abaixo:
-%
-% \begin{fichacatalografica}
-%     \includepdf{fig_ficha_catalografica.pdf}
-% \end{fichacatalografica}
-
-\newcommand{\imprimirfichacatalografica}{
-\begin{fichacatalografica}
-	\vspace*{\fill}					% Posição vertical
-	\hrule							% Linha horizontal
-	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
-	
-	\imprimirautor
-	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-	
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título\\ 			
-	
-	\hspace{8.75cm} CDU 02:141:005.7\\
-	
-	\end{minipage}
-	\end{center}
-	\hrule
-\end{fichacatalografica}
-}
+% Apenas em Mestrado.sty
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FOLHA DE APROVAÇÃO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-% imagem da página assinada pela banca com o comando abaixo:
-%
-% \includepdf{folhadeaprovacao_final.pdf}
-%
+% Apenas em Mestrado.sty
 
-\newcommand{\imprimirfolhadeaprovacao}{
-\begin{folhadeaprovacao}
-
-  \begin{center}
-    {\ABNTEXchapterfont\large\imprimirautor}
-
-    \vspace*{\fill}\vspace*{\fill}
-    \begin{center}
-      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
-    \end{center}
-    \vspace*{\fill}
-    
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \imprimirpreambulo
-    \end{minipage}%
-    \vspace*{\fill}
-   \end{center}
-        
-   Trabalho aprovado. \imprimirlocal, 01 de Maio de 2016:
-
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
-   %\assinatura{\textbf{Professor} \\ Convidado 3}
-   %\assinatura{\textbf{Professor} \\ Convidado 4}
-      
-   \begin{center}
-    \vspace*{0.5cm}
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
-    \vspace*{1cm}
-  \end{center}
-  
-\end{folhadeaprovacao}
-% ---
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SUMARIO
@@ -375,4 +295,3 @@
 \renewcommand{\afterchapternum}{%
     \par
 }
-
