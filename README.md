@@ -65,6 +65,6 @@ Lista mínima de pacotes a serem instalados em distribuições Ubuntu/Mint linux
   * Por conta do pacote minted (http://tug.ctan.org/tex-archive/macros/latex/contrib/minted/minted.pdf), não esquecer de adicionar o comando `-shell-escape` à linha de compilação
 
 3. Online
-  * https://www.sharelatex.com/
-  * Ambiente online com todos os pacotes latex existentes já prontos para uso, com a opção de compartilhamento de projeto entre várias pessoas
+  * https://www.sharelatex.com/ ou https://www.overleaf.com/
+  * Ambientes online com todos os pacotes latex existentes já prontos para uso, com a opção de compartilhamento de projeto entre várias pessoas
   * Para usar nosso template, basta importar a estrutura de pastas e compilar o texto
