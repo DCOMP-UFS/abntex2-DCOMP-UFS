@@ -4,7 +4,7 @@ dcomp-abntex2
 ## Informações Gerais
 Classe que adapta o pacote abntex2 para as normas do Departamento de Computação e o Programa de Pós-Graduação em Ciência da Computação da Universidade Federal de Sergipe. O abntex2 (http://www.abntex.net.br/) é uma classe que implementa as normas da ABNT para os usuários LaTex.
 
-Estão disponiveis dois arquivos para download:
+Estão disponiveis os seguintes arquivos para download:
 - dcomp-abntex2.cls         `Pacote com as regras gerais do template`
 - Graduacao.sty             `Estilo de formatação para os Trabalhos de conslusão de curso`
 - Mestrado.sty              `Estilo de formatação para as Dissertações de Mestrado`
@@ -27,7 +27,7 @@ Com relação ao pacote abntex2, foram modificadas as seguintes páginas:
 - Capa -> Imagens do DCOMP/PROCC e UFS adicionadas
 - Folha de rosto
 - Ficha catalográfica
-- Membros da banca
+- Folha de Aprovação
 
 ## Pacotes
 
