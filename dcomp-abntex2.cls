@@ -252,15 +252,15 @@
 %% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setminted{ bgcolor=gray!15, 
-            frame=lines,
+\setminted{ bgcolor = gray!15, 
+            frame = lines,
             mathescape,
             autogobble,
-            breakanywhere,
+            %breakanywhere,
             breaklines,
-            framesep=2mm,
-            baselinestretch=1.2,
-            fontsize=\footnotesize,
+            framesep = 2mm,
+            baselinestretch = 1.2,
+            fontsize = \footnotesize,
             linenos
             %style=borland,
 }
