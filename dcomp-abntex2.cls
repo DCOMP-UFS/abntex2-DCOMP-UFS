@@ -292,6 +292,16 @@
 
 \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize\color{black}}
 
-\renewcommand{\afterchapternum}{%
-    \par
+\renewcommand\printchaptertitle[1]{%
+    \chaptitlefont%
+    \ifthenelse{\boolean{abntex@innonumchapter}}{%
+    \centering\ABNTEXchapterupperifneeded{#1}}{%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \centering%
+        \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+        \ABNTEXchapterupperifneeded{#1}%
+      }{%
+        {\printchaptername\afterchapternum}%
+        \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}}%
+     }    
 }
