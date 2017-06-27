@@ -31,7 +31,7 @@
   \let\@degreetype=2}
 
 \DeclareOption{pibic}{%
-  \let\@degreetype=1}
+  \let\@degreetype=3}
 
 % Repassa todos os parametros a classe abntex2
 \DeclareOption*{%
@@ -65,6 +65,9 @@
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
 \usepackage[newfloat]{minted}
+
+\usepackage{url}            % deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
+\usepackage{breakurl}    % trata de forma correta a quebra de url entre linhas
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES POR TIPO DE DOCUMENTO
@@ -201,20 +204,23 @@
 
 % informações do PDF
 \makeatletter
+
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      	% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+	unicode=true,
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=blue,          	% color of internal links
+	citecolor=blue,        		% color of links to bibliography
+	filecolor=magenta,      	% color of file links
+	urlcolor=blue,
+	bookmarksdepth=4,
+	breaklinks=true            % deve ser usado com o pacote breakurl, sem ele não fuciona
 }
+
 \makeatother
 % --- 
 
