@@ -1,7 +1,6 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% abnTeX2: Modelo de Trabalho Acadêmico (tese de doutorado, dissertação de
-% mestrado e trabalhos monográficos em geral) em conformidade com 
+% abnTeX2: Modelo de Trabalho Acadêmico em conformidade com 
 % as normas da ABNT
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -32,7 +31,7 @@
 % ----------------------------------------------------------
 \pretextual
 
-\titulo{Utilizando Algoritmos Mágicos para Resolver Problemas de Bancos de dados Obscuros em Nuvens Cumulonimbus}
+\titulo{Modelo Canônico de Trabalho Acadêmico com \abnTeX: Customização para o Departamento de Computação}
 \autor{Arnold Schwarzenegger da Silva}
 \orientador{Andrew S. Tanenbaum}
 \coorientador{Donald Knuth}
@@ -41,26 +40,29 @@
 \imprimircapa
 \imprimirfolhaderosto*
 
-\imprimirfichacatalografica
-\imprimirfolhadeaprovacao
-    
+   
 \include{Pre_Textual/Dedicatoria}
 \include{Pre_Textual/Agradecimentos}
 \include{Pre_Textual/Epigrafe}
 \include{Pre_Textual/Resumo}
 \include{Pre_Textual/Abstract}
     
-% Lista de Figuras
+% Lista de ilustrações
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
-% Lista de Tabelas
+% Lista de quadros
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+
+% Lista de tabelas
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 
-% Lista de Códigos
+% Lista de códigos
 \pdfbookmark[0]{\listlistingname}{lol}
 \begin{KeepFromToc}
 	\listoflistings
@@ -79,9 +81,13 @@
 % ----------------------------------------------------------
 \textual
 \include{Conteudo/Introducao}
-\include{Conteudo/TrabalhosRelacionados}
+\include{Conteudo/Comandos}
+\include{Conteudo/ConteudoEspecifico}
+\include{Conteudo/Outros}
+\include{Conteudo/Customizacao}
 \include{Conteudo/Conclusao}
 
+\phantompart
 \bibliography{Bibliografia}
 
 % ----------------------------------------------------------
