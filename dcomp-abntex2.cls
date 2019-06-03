@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[12/01/2017 v1.4 Modelo do DCOMP baseado em abnTeX2]
+\ProvidesClass{dcomp-abntex2}[03/06/2019 v1.5 Modelo DCOMP baseado no projeto abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -27,11 +27,11 @@
 \DeclareOption{msc}{%
   \let\@degreetype=1}
 
-\DeclareOption{prop-msc}{%
-  \let\@degreetype=2}
+%\DeclareOption{prop-msc}{%
+%  \let\@degreetype=2}
 
-\DeclareOption{pibic}{%
-  \let\@degreetype=3}
+%\DeclareOption{pibic}{%
+%  \let\@degreetype=3}
 
 % Repassa todos os parametros a classe abntex2
 \DeclareOption*{%
@@ -49,7 +49,7 @@
 \usepackage[utf8]{inputenc}     % Codificacao do documento
 \usepackage{lastpage}           % Para total de páginas
 
-\usepackage{mathptmx}           % Usa a fonte times
+\usepackage{newtxtext, newtxmath} % Usa a fonte Times New Roman
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte
@@ -111,7 +111,7 @@
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
   
-		\centering \includegraphics[scale=0.2]{Imagens/logo_ufs}
+		\centering \includegraphics[scale=0.3]{Imagens/logo_ufs}
 		
 		\imprimirinstituicao
 	    \vspace*{\fill}
@@ -120,7 +120,6 @@
     	\vspace*{\fill}
 	    \vspace*{3.0cm}
     	
-    	%{\ABNTEXchapterfont\bfseries\imprimirtitulo}
 	    {\ABNTEXchapterfont\Large\imprimirtitulo}
     	\vspace*{1.0cm}
     	
@@ -284,6 +283,25 @@
   within=none,
   chapterlistsgaps=on}
   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTA DE QUADROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
