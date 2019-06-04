@@ -290,7 +290,8 @@
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
-\newfloat[chapter]{quadro}{loq}{\quadroname}
+%\newfloat[chapter]{quadro}{loq}{\quadroname}
+\DeclareFloatingEnvironment[fileext=loq, within=chapter]{quadro}
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
