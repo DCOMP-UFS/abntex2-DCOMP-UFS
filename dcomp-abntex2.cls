@@ -64,10 +64,10 @@
 
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{xcolor}
-\usepackage[newfloat]{minted}
-
 \usepackage{url}            % deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
 \usepackage{breakurl}    % trata de forma correta a quebra de url entre linhas
+\usepackage{listings, lstautogobble}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES POR TIPO DE DOCUMENTO
@@ -257,31 +257,43 @@
 %% LISTA DE CÓDIGOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setminted{ bgcolor = gray!15, 
-            frame = lines,
-            mathescape,
-            autogobble,
-            %breakanywhere,
-            breaklines,
-            framesep = 2mm,
-            baselinestretch = 1.2,
-            fontsize = \footnotesize,
-            linenos
-            %style=borland,
+\newcommand{\codigoname}{Código}
+\newcommand{\listofcodigosname}{Lista de códigos}
+
+\newfloat[chapter]{codigo}{loc}{\codigoname}
+\newlistof{listofcodigos}{loc}{\listofcodigosname}
+\newlistentry{codigo}{loc}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{codigo}{\centering}
+\counterwithout{codigo}{chapter}
+\renewcommand{\cftcodigoname}{\codigoname\space} 
+\renewcommand*{\cftcodigoaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{codigo}{hbtp}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    numberstyle=\footnotesize,
+    numbers=left,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{black!30},
+    %title=\lstname,
+    breaklines=true,
+    breakatwhitespace=true,
+    commentstyle=\color{mygreen},    % comment style
+    escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+    keywordstyle=\color{blue},       % keyword style
+    stringstyle=\color{mymauve},     % string literal style
+    autogobble=true,
+    showstringspaces=false
 }
-
-\makeatletter
-\let\l@listing\l@figure
-\def\newfloat@listoflisting@hook{\let\figurename\listingname}
-\makeatother
-
-\SetupFloatingEnvironment{listing}{%
-  fileext=lol,
-  listname={Lista de códigos},
-  name=Código,
-  placement=p,
-  within=none,
-  chapterlistsgaps=on}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LISTA DE QUADROS
@@ -290,8 +302,7 @@
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
-%\newfloat[chapter]{quadro}{loq}{\quadroname}
-\DeclareFloatingEnvironment[fileext=loq, within=chapter]{quadro}
+\newfloat[chapter]{quadro}{loq}{\quadroname}
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
@@ -302,6 +313,7 @@
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 
 \setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
