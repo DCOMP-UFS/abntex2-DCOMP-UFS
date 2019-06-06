@@ -6,9 +6,9 @@ Classe que adapta o pacote abntex2 para as normas do Departamento de Computaçã
 
 Estão disponiveis os seguintes arquivos para download:
 - dcomp-abntex2.cls         `Pacote com as regras gerais do template`
-- Graduacao.sty             `Estilo de formatação para os Trabalhos de conslusão de curso`
+- Graduacao.sty             `Estilo de formatação para os Trabalhos de Conclusão de Curso`
 - Mestrado.sty              `Estilo de formatação para as Dissertações de Mestrado`
-- Modelo-TCC-DCOMP.tex      `Modelo para os Trabalhos de conclusão de curso`
+- Modelo-TCC-DCOMP.tex      `Modelo para os Trabalhos de Conclusão de Curso`
 - Modelo-Mestrado-PROCC.tex `Modelo para as Dissertações de Mestrado`
 
 Sugerimos escrever documentos por cima do arquivo de modelo .tex fornecido, com toda sua estrutura de pastas. Pra quem utilizar outro modelo, é preciso colocar a classe adequada:
