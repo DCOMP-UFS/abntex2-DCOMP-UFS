@@ -1,19 +1,26 @@
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % abnTeX2: Modelo de Trabalho Acadêmico em conformidade com 
 % as normas da ABNT
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[english, 
                brazil, 
                bsc] %Opções bsc (TCC) e msc (Mestrado)
                {dcomp-abntex2}
 
-% Geração de dummy text
-% Retirar para a versão final do documento
-\usepackage{lipsum}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Área para adição de pacotes extras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lipsum} %Retirar para a versão final do documento
+
+%Utilize aqui seu pacote preferido para algoritmos
+\usepackage[linesnumbered]{algorithm2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Compila o indice
 \makeindex
@@ -26,57 +33,45 @@
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
 
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \pretextual
 
-\titulo{Modelo Canônico de Trabalho Acadêmico com \abnTeX: Customização para o Departamento de Computação}
+\titulo{Modelo Canônico de Trabalho Acadêmico com abnTeX2: Customização para o Departamento de Computação} 
 \autor{Arnold Schwarzenegger da Silva}
 \orientador{Andrew S. Tanenbaum}
 \coorientador{Donald Knuth}
 \curso{Ciência da Computação}
 
+\inserirInformacoesPDF
+
 \imprimircapa
 \imprimirfolhaderosto*
 
-   
 \include{Pre_Textual/Dedicatoria}
 \include{Pre_Textual/Agradecimentos}
 \include{Pre_Textual/Epigrafe}
 \include{Pre_Textual/Resumo}
 \include{Pre_Textual/Abstract}
-    
-% Lista de ilustrações
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
 
-% Lista de quadros
-\pdfbookmark[0]{\listofquadrosname}{loq}
-\listofquadros*
-\cleardoublepage
 
-% Lista de tabelas
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage
-
-% Lista de códigos
-\pdfbookmark[0]{\listofcodigosname}{loc}
-\listofcodigos*
-\cleardoublepage
-   
+\mostrarlistadeILUSTRACOES
+\mostrarlistadeQUADROS
+\mostrarlistadeTABELAS
+\mostrarlistadeCODIGOS
+\mostrarlistadeALGORITMOS
+ 
 \include{Pre_Textual/Abreviaturas}
 \include{Pre_Textual/Simbolos}
     
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
+\mostrarSUMARIO
 
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS TEXTUAIS
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \textual
 \include{Conteudo/Introducao}
 \include{Conteudo/Comandos}
@@ -88,9 +83,10 @@
 \phantompart
 \bibliography{Bibliografia}
 
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \postextual
 
 \renewcommand{\chapnumfont}{\chaptitlefont}
