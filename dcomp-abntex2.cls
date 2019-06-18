@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[03/06/2019 v1.5 Modelo DCOMP baseado no projeto abnTeX2]
+\ProvidesClass{dcomp-abntex2}[18/06/2019 v1.5 Modelo DCOMP baseado no projeto abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -27,11 +27,6 @@
 \DeclareOption{msc}{%
   \let\@degreetype=1}
 
-%\DeclareOption{prop-msc}{%
-%  \let\@degreetype=2}
-
-%\DeclareOption{pibic}{%
-%  \let\@degreetype=3}
 
 % Repassa todos os parametros a classe abntex2
 \DeclareOption*{%
@@ -45,27 +40,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{cmap}               % Mapear caracteres especiais no PDF
-\usepackage[utf8]{inputenc}     % Codificacao do documento
-\usepackage{lastpage}           % Para total de páginas
+\usepackage{cmap}                 % Mapear caracteres especiais no PDF
+\usepackage[utf8]{inputenc}       % Codificacao do documento
+\usepackage{lastpage}             % Para total de páginas
 
 \usepackage{newtxtext, newtxmath} % Usa a fonte Times New Roman
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção
-\usepackage{color}			    % Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage[T1]{fontenc}		  % Selecao de codigos de fonte
+\usepackage{lastpage}			  % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		  % Indenta o primeiro parágrafo de cada seção
+\usepackage{color}			      % Controle das cores
+\usepackage{graphicx}			  % Inclusão de gráficos
+\usepackage{microtype} 			  % para melhorias de justificação
 
 \usepackage[brazilian,hyperpageref]{backref}
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf]{abntex2cite}	  % Citações padrão ABNT
 
-\usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage{parskip}			  % espaçamento entre os parágrafos
 \usepackage{xcolor}
-\usepackage{url}            % deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
-\usepackage{breakurl}    % trata de forma correta a quebra de url entre linhas
+\usepackage{url}                  % deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
+\usepackage{breakurl}             % trata de forma correta a quebra de url entre linhas
 \usepackage{listings, lstautogobble}
 
 
@@ -197,31 +192,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFIGURAÇÃO DE APARÊNCIA DO PDF FINAL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
-
+	\definecolor{blue}{RGB}{41,5,195}
+	
 % informações do PDF
 \makeatletter
 
 \hypersetup{
-	unicode=true,
-	pdftitle={\@title}, 
-	pdfauthor={\@author},
-	pdfsubject={\imprimirpreambulo},
-	pdfcreator={LaTeX with abnTeX2},
-	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+	unicode=true, 
 	colorlinks=true,       		% false: boxed links; true: colored links
 	linkcolor=blue,          	% color of internal links
 	citecolor=blue,        		% color of links to bibliography
 	filecolor=magenta,      	% color of file links
 	urlcolor=blue,
 	bookmarksdepth=4,
-	breaklinks=true            % deve ser usado com o pacote breakurl, sem ele não fuciona
+	breaklinks=true             % deve ser usado com o pacote breakurl, sem ele não fuciona
 }
 
-\makeatother
-% --- 
+\makeatother 
+
+
+\newcommand{\inserirInformacoesPDF}{
+	\makeatletter
+
+	\hypersetup{
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+		pdfsubject={\imprimircurso},
+		pdfcreator={\imprimirorientador},
+		pdfkeywords={abnTeX2, DCOMP, Universidade Federal de Sergipe},
+	}
+	
+	\makeatother 
+
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ESPAÇAMENTO ENTRE LINHAS E PARÁGRAFOS
@@ -294,7 +298,7 @@
     autogobble=true,
     showstringspaces=false
 }
-  
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LISTA DE QUADROS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -312,8 +316,27 @@
 \renewcommand{\cftquadroname}{\quadroname\space} 
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 
-\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% Ver https://github.com/abntex/abntex2/issues/176
+\setfloatlocations{quadro}{hbtp} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTA DE ALGORITMOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\algoritmoname}{Algoritmo}
+\newcommand{\listofalgoritmosname}{Lista de algoritmos}
+
+\newfloat[chapter]{algoritmo}{loa}{\algoritmoname}
+\newlistof{listofalgoritmos}{loa}{\listofalgoritmosname}
+\newlistentry{algoritmo}{loa}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{algoritmo}{\centering}
+\counterwithout{algoritmo}{chapter}
+\renewcommand{\cftalgoritmoname}{\algoritmoname\space} 
+\renewcommand*{\cftalgoritmoaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{algoritmo}{hbtp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FORMATO DOS CAPÍTULOS
@@ -342,3 +365,44 @@
         \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}}%
      }    
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COMANDOS PARA MOSTRAR LISTAS E SUMARIO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mostrarlistadeQUADROS}{
+	\pdfbookmark[0]{\listofquadrosname}{loq}
+	\listofquadros*
+	\cleardoublepage
+}
+
+\newcommand{\mostrarlistadeCODIGOS}{
+    \pdfbookmark[0]{\listofcodigosname}{loc}
+    \listofcodigos*
+    \cleardoublepage
+}
+
+\newcommand{\mostrarlistadeILUSTRACOES}{
+	\pdfbookmark[0]{\listfigurename}{lof}
+	\listoffigures*
+	\cleardoublepage
+}
+
+\newcommand{\mostrarlistadeTABELAS}{
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
+	\cleardoublepage
+}
+
+\newcommand{\mostrarlistadeALGORITMOS}{
+	\pdfbookmark[0]{\listofalgoritmosname}{loa}
+	\listofalgoritmos*
+	\cleardoublepage
+}
+
+\newcommand{\mostrarSUMARIO}{
+	\pdfbookmark[0]{\contentsname}{toc}
+	\tableofcontents*
+	\cleardoublepage
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
