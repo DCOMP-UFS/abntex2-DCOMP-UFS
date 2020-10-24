@@ -37,6 +37,7 @@ Lista mínima de pacotes a serem instalados em distribuições Ubuntu/Mint linux
 * texlive-latex-base
 * abntex
 * texlive-fonts-recommended
+* texlive-fonts-extra
 * texlive-lang-portuguese
 * texlive-latex-recommended
 * texlive-science
