@@ -106,7 +106,7 @@
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
   
-		\centering \includegraphics[scale=0.3]{Imagens/logo_ufs}
+		\centering \includegraphics[scale=0.2]{Imagens/logo_ufs}
 		
 		\imprimirinstituicao
 	    \vspace*{\fill}
